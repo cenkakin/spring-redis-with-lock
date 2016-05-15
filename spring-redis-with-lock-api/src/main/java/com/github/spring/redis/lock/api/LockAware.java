@@ -7,5 +7,7 @@ public interface LockAware {
 
     String key();
 
-    default String keyObjectPrefix()  { return  "";}
+    default String keyObjectPrefix() {
+        return "";
+    }
 }

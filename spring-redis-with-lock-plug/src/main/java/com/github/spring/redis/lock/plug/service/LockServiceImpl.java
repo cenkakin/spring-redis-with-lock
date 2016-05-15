@@ -30,7 +30,7 @@ public class LockServiceImpl implements LockService {
         lockAwares.forEach(la -> {
             String lockedKey = generateKey(lockProperties.getGlobalPrefix(), keyPrefix, la.keyObjectPrefix(), la.key());
             int result = lockRepository.incrementAndGet(lockedKey, lockProperties.getTtlInMilliSeconds());
-            if(result > 1) {
+            if (result > 1) {
                 throw new LockException(lockedKey + " is already locked!");
             }
         });
@@ -51,7 +51,7 @@ public class LockServiceImpl implements LockService {
     @Override
     public void unlockAllObjectsWithObjectPrefix(String objectPrefix) {
         String lockedKey = generateKey(lockProperties.getGlobalPrefix(), "*", objectPrefix);
-        lockRepository.removeWithKeyPattern(lockedKey +  "*");
+        lockRepository.removeWithKeyPattern(lockedKey + "*");
     }
 
     private String generateKey(String... keys) {

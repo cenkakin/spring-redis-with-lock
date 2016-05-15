@@ -58,8 +58,8 @@ public class LockBeanPostProcessor extends AbstractAdvisingBeanPostProcessor {
         }
 
         private List<LockAware> resolveKeyList(MethodInvocation invocation) {
-            if(invocation.getArguments().length == 0) {
-                new IllegalArgumentException("Method with incrementAndGet annotation has to have at least one argument.");
+            if (invocation.getArguments().length == 0) {
+                throw new IllegalArgumentException("Method with incrementAndGet annotation has to have at least one argument.");
             }
             return Arrays.asList(invocation.getArguments())
                          .stream()
