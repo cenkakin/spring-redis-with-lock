@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Import;
 /**
  * Created by cenkakin
  */
-@SpringBootApplication(scanBasePackages = "com.*")
+@SpringBootApplication
 @Import(LockConfig.class)
 public class Application {
 

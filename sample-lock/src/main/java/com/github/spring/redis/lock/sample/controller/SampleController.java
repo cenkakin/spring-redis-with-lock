@@ -22,7 +22,6 @@ public class SampleController {
     @Lock(keyActionPrefix = "lockaction")
     @RequestMapping(value = "/lock", method = RequestMethod.POST)
     public ResponseEntity lock(@RequestBody SampleObject sampleObject) {
-        lockService.unlockAllObjectsWithObjectPrefix("first");
         return ResponseEntity.ok().build();
     }
 
